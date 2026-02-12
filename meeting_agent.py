@@ -6,10 +6,10 @@ import uuid
 import base64
 import pyttsx3
 
-# 🔐 Load API Key
+# Load API Key
 SARVAM_API_KEY = os.getenv("SARVAM_API_KEY")
 
-# 🎤 Speech to Text
+# Speech to Text
 def listen():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
@@ -26,7 +26,7 @@ def listen():
         return None
 
 
-# 🧠 Send text to Sarvam AI
+# Send text to Sarvam AI
 def ask_sarvam(text):
     url = "https://api.sarvam.ai/v1/chat/completions"
 
@@ -51,9 +51,7 @@ def ask_sarvam(text):
     return reply
 
 
-# 🔊 Text to Speech using Sarvam
-
-
+# Text to Speech using Sarvam
 
 def speak(text):
     engine = pyttsx3.init()
@@ -66,7 +64,7 @@ def speak(text):
 
 
 
-# 🔁 Main Loop
+# Main Loop
 while True:
     user_text = listen()
 
@@ -77,4 +75,5 @@ while True:
 
         reply = ask_sarvam(user_text)
         speak(reply)
+
 
